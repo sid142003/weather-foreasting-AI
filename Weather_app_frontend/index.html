@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather</title>
+</head>
+
+<script>
+     function getData() {
+            fetch('http://192.168.113.229:5000/temperature',{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('Response:', response);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data:', data);
+                const formattedTemp = data.temperature.toFixed(2);
+                document.getElementById('tempDisplay').innerHTML = formattedTemp + " °C";
+                document.getElementById('numH').innerHTML = data.humidity + " %";
+                const formattedPressure = data.pressure.toFixed(2);
+                document.getElementById('numA').innerHTML = formattedPressure + " hPa";
+                document.getElementById('numW').innerHTML = data.mq135AnalogValue;
+    
+            })
+            .catch(error => {
+                console.error('Error fetching temperature:', error);
+            });
+        }
+
+        window.onload = function() {
+            getData(); 
+            setInterval(() => {
+                window.location.reload();
+            }, 2000);
+        };
+
+
+
+async function prediction() {
+            try {
+                const response = await fetch('http://192.168.113.248:3000/api/latest-prediction', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                console.log('Response:', data.data); // Displaying only the 'data' array
+
+                // Dynamically render cards based on the number of objects
+                const cardsContainer = document.getElementById('cardsContainer');
+                cardsContainer.innerHTML = ''; // Clear previous cards
+
+                data.data.forEach((obj, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.setAttribute('onclick', `city${index + 1}()`); // Add onclick attribute
+    card.innerHTML = `
+        <div class="date-time">
+            <p class="date">${getDate(obj.Datetime)}</p>
+            <p class="time">${getTime(obj.Datetime)}</p>
+        </div>
+        <div class="o"><img src="https://openweathermap.org/img/wn/10d@2x.png" id="one"></div>
+        <h1 id="tempe" class="t${index + 1}">${obj.Temp}°C</h1  > <!-- Use index + 1 for class t -->
+    `;
+    cardsContainer.appendChild(card);
+});
+
+function getDate(datetime) {
+    const dateObj = new Date(datetime);
+    return dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function getTime(datetime) {
+    const dateObj = new Date(datetime);
+    return dateObj.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+}
+
+            } catch (error) {
+                console.error('Error fetching prediction:', error);
+            }
+        }
+
+
+prediction();
+
+</script>
+
+<body>  
+    <div class="mask">
+    <div class="img"> </div>
+    <div class="top">
+   <div class="container">
+    <div class="cloud">
+    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="cloud"></div>
+     <h1 class="forecast">Fog</h1>
+     <div class="loca">
+        <h4 class="city">Gandhinagar</h4></div>
+            <h1 id="tempDisplay">Loading...</h1>
+    </div>
+<div class="cont">
+    <div class="elem">
+        <br>
+        <img src="/Images/humidity (1).png" class="hum">
+        <h3 id="namH">Humidity</h3>
+        <br>
+        <h3 id="numH">Loading...</h3>
+    </div>
+    <div class="elem">
+        <br>
+        <img src="/Images/pressure.png" class="air">
+        <h3 id="namA">Air Pressure</h3>
+        <br>
+        <h3 id="numA">Loading...</h3>
+    </div>
+    <!-- <div class="elem">
+        <br>
+        <img src="/Images/eye.png" class="vis">
+        <h3 id="namV">Visibility</h3>
+        <br>
+        <h3 id="numV">0%</h3>
+    </div> -->
+    <div class="elem">
+        <br>
+        <img src="/Images/wind (1).png" class="wind">
+        <h3 id="namW">AQI</h3>
+        <br>
+        <h3 id="numW">Loading....</h3>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="bottom">
+    <div id="cardsContainer" class="cont">
+        <!-- Cards will be dynamically added here -->
+    </div>
+   
+
+</div>
+</div>
+</body>
+</html>

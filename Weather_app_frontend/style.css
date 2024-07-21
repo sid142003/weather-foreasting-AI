@@ -1,0 +1,358 @@
+*{
+    border: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+.img{
+    background: no-repeat center center fixed; 
+    background-image: url(/Images/pexels-pixabay-36717.jpg) ; 
+   background-size: cover;
+   display: block;
+   height: 100%;
+   left: -1px;
+   top:-1px;
+   bottom:-1px;
+   position: fixed;
+   right: -1px;
+   z-index: -1;
+   margin:0px auto;
+   filter: blur(2.5px);
+   /* background-color: rgb(0, 0, 0); */
+
+}
+
+h1{
+    margin: 5px;
+    text-align: center;
+    color: #ffffff;
+}
+#temp{
+    font-size: 65px;
+    margin-top: 15px;
+    text-align: center;
+    color: #ffffff;
+}
+.loca{
+    display: inline;
+}
+h4{
+    margin-top: 15px;
+    text-align: center;
+    color: #ffffff;
+}
+#li{
+    font-family: Arial, Helvetica, sans-serif   ;
+    margin-left: 40px;
+    font-size: 25px;
+    font-weight: bold;
+}
+#f{
+    font-family: Arial, Helvetica, sans-serif   ;
+    margin-left: 63px;
+    font-size: 50px;
+    margin-top: 2px;
+    font-weight: bold;
+}
+#feel{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.cloud{
+ margin-left: 50px;
+    /* background-color: black; */
+}
+#cloud{
+   
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+}
+.top{
+    display: inline;
+}
+#d{
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 70px;
+    position: absolute;
+    /* justify-content: center; */
+    width: 50px;
+    height: 50px;
+}
+.mask{
+    width: 100%;
+    /* background-size: cover; */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.448);
+}
+#arrow{
+    float: right;
+    cursor: pointer;
+    margin-top: 160px;
+    /* margin-left: 1500px; */
+    /* position: absolute; */
+    /* justify-content: center; */
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+}
+#arrow:hover{
+    box-shadow: 0 0 10px black;
+    z-index: 1;
+    height: 60px;
+    width: 60px;
+}
+#day{
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    /* justify-content: end; */
+    margin-top: 90px;
+}
+.container{
+    float: left;
+    width: 200px;
+    height:500px;
+    margin-left: 50px;
+    
+    background-color:transparent;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px transparent;
+}
+.cont{
+    float:right;
+    width: 300px;
+    height:600px;
+    margin-right: 50px;
+    margin-top: 60px;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px transparent;
+}
+
+#cardsContainer{
+      /* width: 1800px; */
+      width: 95%;
+      height: 400px;
+      /* background-color: rgb(191, 0, 0); */
+      position: absolute;
+      bottom: 0;
+      margin-left: 2vw;
+      /* margin-bottom: 40px; */
+      border-radius: 25px;
+      display:flex;
+}
+.bottom{
+    /* width: 1800px; */
+    width: 95%;
+    height: 400px;
+    /* background-color: rgb(191, 0, 0); */
+    position: absolute;
+    bottom: 0;
+    margin-left: 2vw;
+    /* margin-bottom: 40px; */
+    border-radius: 25px;
+    display:flex;
+}
+.card{
+    height: 300px;
+    /* width: 250px; */
+    width: 15%;
+    margin: auto;
+    /* background-color: black; */
+    /* border-radius: 15px; */
+    transition: width 1s, height 1s;
+    cursor: pointer;
+    
+}
+.card:hover {
+    box-shadow: 0 0 30px black;
+    z-index: 1;
+    height: 380px;
+    width: 300px;
+  
+}
+.locat{
+    cursor: pointer;
+}
+.card:hover .hov {
+    box-shadow: 0 0 10px black;
+    z-index: 1;
+    height: 380px;
+    width: 300px;
+    opacity: 1.5;
+}
+
+#loca{
+    margin-left: 20px;
+    position:absolute ;
+    width: 25px;
+    height: 25px;
+}
+#tempe{
+    font-size: 70px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#cities{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 10px;
+    color: #ffffff;
+}
+button{
+    /* margin-top: 20px; */
+    /* justify-content: center; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/Images/loupe\ \(1\).png);
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-left: 1320px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.search{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    font-size: 30px;
+    margin-top: 50px;
+    height: 60px;
+    width: 900px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.884);
+    position: absolute;
+    justify-content: center;
+    display: grid  ;
+    margin-left: 450px;
+    /* float: right; */
+}
+.city{
+
+    font-size: 29px;
+}
+.hov{
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin-left: 15px; */
+    font-size: 30px;
+    margin-top: 25px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: 1s;
+}
+ */
+.elem{
+    width: 200px;
+    height:100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 40px;
+    background-color:transparent;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px transparent;
+}
+.hum{
+    margin-left: 10px;
+    display: inline;
+    float: left;
+    width: 40px;
+    height: 40px; 
+}
+.vis{
+    margin-left: 10px;
+    display: inline;
+    float: left;
+    width: 45px;
+    height: 45px; 
+}
+.wind{
+    margin-left: 10px;
+    display: inline;
+    float: left;
+    width: 45px;
+    height: 45px; 
+}
+#nam{
+   
+    display:inline;
+    margin-left: 20px;
+}
+#namV{
+    
+    display:inline;
+    margin-left: 60px;
+    font-size: 29px;
+} 
+#namW{
+    
+    display:inline;
+    margin-left: 45px;
+    font-size: 23px;
+   
+}  
+#namH{
+ 
+    display:inline;
+    margin-left: 70px;
+    font-size: 23px;
+   
+} 
+#numH{
+   
+text-align: center;
+    font-size: 35px;
+}
+#numV{
+   
+    text-align: center;
+        font-size: 30px;
+    }
+#loc{
+    margin-top: 3px;
+    color: #ffffff;
+    display: inline;
+    font-size: 19px;
+}
+
+#numW{
+text-align: center;
+margin-top: 5px;
+    font-size: 25px;
+}
+.air{
+    margin-left: 10px;
+    display: inline;
+    float: left;
+    width: 50px;
+    height: 50px; 
+}
+#namA{
+    display:inline;
+    margin-left: 45px;
+    font-size: 23px;
+}
+#numA{
+    font-size: 28px;
+    text-align: center;
+    margin-top: 5px;
+}
